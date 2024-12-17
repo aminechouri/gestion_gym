@@ -1,0 +1,19 @@
+.container {
+    padding: 20px;
+  }
+  .gym-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  .gym-table th, .gym-table td {
+    padding: 10px;
+    text-align: left;
+  }
+  .gym-table th {
+    background-color: #007bff;
+    color: #fff;
+  }
+  .gym-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }

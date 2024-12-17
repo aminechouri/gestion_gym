@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { GymService } from '../../services/services/gym.service';
 import { CommonModule } from '@angular/common';
+import { GymService } from '../../services/services/gym.service';
 
 @Component({
   selector: 'app-gym-list',
@@ -11,13 +11,23 @@ import { CommonModule } from '@angular/common';
 })
 export class GymListComponent {
 
-  gyms: any[] = [];
+  gyms: any[] = []; // List to hold gym data
 
   constructor(private gymService: GymService) {}
 
   ngOnInit(): void {
-      this.gymService.getGyms().subscribe((data) => {
-          this.gyms = data;
-      });
+    this.loadGyms();
+  }
+
+  loadGyms() {
+    this.gymService.getGyms().subscribe({
+      next: (data) => {
+        this.gyms = data;
+        console.log('Gyms loaded:', data);
+      },
+      error: (error) => {
+        console.error('Error fetching gyms:', error);
+      },
+    });
   }
 }

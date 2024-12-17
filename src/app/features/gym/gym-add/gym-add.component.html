@@ -1,0 +1,18 @@
+<div class="container">
+    <h2>Add New Gym</h2>
+    <form (ngSubmit)="addGym()">
+      <label for="name">Gym Name:</label>
+      <input id="name" [(ngModel)]="gym.name" name="name" required />
+
+      <label for="location">Location:</label>
+      <input id="location" [(ngModel)]="gym.location" name="location" required />
+
+      <label for="contactNumber">Contact Number:</label>
+      <input id="contactNumber" [(ngModel)]="gym.contactNumber" name="contactNumber" required />
+
+      <label for="description">Description:</label>
+      <textarea id="description" [(ngModel)]="gym.description" name="description"></textarea>
+
+      <button type="submit">Add Gym</button>
+    </form>
+  </div>

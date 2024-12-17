@@ -3,23 +3,19 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GymService {
-
-  private apiUrl = 'http://localhost:5000/api';
+  private apiUrl = 'http://localhost:5000/api/gyms'; // Backend URL
 
   constructor(private http: HttpClient) {}
 
-  getGyms(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/gyms`);
-}
-
-   register(username: string, password: string): Observable<any> {
-      return this.http.post<any>(`${this.apiUrl}/register`, { username, password });
+  addGym(gym: any): Observable<any> {
+    return this.http.post<any>(this.apiUrl, gym);
   }
 
-  login(username: string, password: string): Observable<any> {
-      return this.http.post<any>(`${this.apiUrl}/login`, { username, password });
+  // Get All Gyms
+  getGyms(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl);
   }
 }
